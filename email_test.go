@@ -9,9 +9,9 @@ func TestEmail(t *testing.T) {
 	myEmail := &EmailConf{
 		ServerHost: "smtpdm.aliyun.com",
 		ServerPort: 465,
-		FromEmail:  "donotreply@directmail.coinexpress.cc",
-		FromPasswd: "siz8ivQbruGasVh9NtqO",
-		FromName:   "CoinExpress",
+		FromEmail:  "********",
+		FromPasswd: "****",
+		FromName:   "***",
 	}
 	myEmail.InitEmail()
 	send := &EmailSend{
