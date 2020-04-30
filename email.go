@@ -65,7 +65,7 @@ func (ep *EmailConf) InitEmail() {
 }
 
 // SendEmail body支持html格式字符串
-func (s *EmailSend) SendEmail(subject, body string) {
+func (s *EmailSend) SendEmail(subject, body string) error {
 	// 主题
 	s.Msg.SetHeader("Subject", subject)
 
@@ -74,7 +74,5 @@ func (s *EmailSend) SendEmail(subject, body string) {
 
 	d := gomail.NewPlainDialer(serverHost, serverPort, fromEmail, fromPasswd)
 	// 发送
-	if err := d.DialAndSend(s.Msg); err != nil {
-		panic(err)
-	}
+	return d.DialAndSend(s.Msg)
 }

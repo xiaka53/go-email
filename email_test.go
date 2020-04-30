@@ -1,13 +1,16 @@
 package go_email
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestEmail(t *testing.T) {
 	myEmail := &EmailConf{
-		ServerHost: "******",
+		ServerHost: "smtpdm.aliyun.com",
 		ServerPort: 465,
-		FromEmail:  "******",
-		FromPasswd: "*****",
+		FromEmail:  "donotreply@directmail.coinexpress.cc",
+		FromPasswd: "siz8ivQbruGasVh9NtqO",
 		FromName:   "CoinExpress",
 	}
 	myEmail.InitEmail()
@@ -20,5 +23,6 @@ func TestEmail(t *testing.T) {
 	body := `这是正文<br>
             <h3>这是标题</h3>
              Hello <a href = "http://www.latelee.org">主页</a><br>`
-	send.Get().SendEmail(subject, body)
+	err := send.Get().SendEmail(subject, body)
+	fmt.Println(err)
 }
